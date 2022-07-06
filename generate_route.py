@@ -1,7 +1,5 @@
 import os
 
-from requests import get
-
 module_first_line= "const express= require('express')\nconst router= express.Router()\n\n"
 
 #  get all objects from table 
@@ -62,13 +60,19 @@ router.get("/:id"), async (req, res)=> {{
 
 # post data to route
 def post_route(module_name, fields):
+    req_body= ""
+    for field in fields:
+        val= list(field.values())[0]
+        req_body+= val+", "
+    req_body=req_body[:-2]  
+
     postRoute= """
 router.post("/", async (req, res) => {{
     try {{
-        const {{ name, description, img_url, status }} = req.body
+        const {{ {} }} = req.body
 
         const {} = new {}({{
-            name, description, img_url, status
+            {}
         }});
 
         await {}.save();
@@ -87,7 +91,7 @@ router.post("/", async (req, res) => {{
     }}
 }})
 
-""".format(module_name, module_name.capitalize(), module_name, module_name, )
+""".format(req_body, module_name, module_name.capitalize(), req_body, module_name, module_name)
     return postRoute
 
 
@@ -126,7 +130,7 @@ def generate_route(module_name, fields):
     route_output_file= './output/'+ module_name +'_route.js'
     os.makedirs(os.path.dirname(route_output_file), exist_ok=True)
 
-    first_route_line= "const {{}} = require('../models/{}')\n".format(module_name.capitalize(), module_name)
+    first_route_line= "const {{ {} }} = require('../models/{}')\n".format(module_name.capitalize(), module_name)
 
     output= open(route_output_file, 'w')
 

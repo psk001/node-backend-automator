@@ -19,8 +19,18 @@ def generate_model(module_name, fields):
     output.write(first_schema_line)
 
     for field in fields:
-        curr_line= "\t{}: {{ \n\t\ttype: {} \n\t}},\n".format(field[0],field[1].capitalize())
+        flag= 1 if field['type'] in ["number", "boolean"] else 0
+
+        curr_line= "\t{}: {{ \n\t\ttype: {}, \n".format(field['key'],field['type'].capitalize())
         output.write(curr_line)
+
+        if('params' in field):
+            for key, value in field['params'].items():
+                value= value if flag==1 else '"'+value+'"'
+                curr_line= "\t\t"+ key + ": "+ value+ ", \n" 
+                output.write(curr_line)             
+
+        output.write('\t},\n')
 
     output.write(last_schema_line)
     output.write(module_last_line)

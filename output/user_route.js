@@ -1,7 +1,7 @@
 const express= require('express')
 const router= express.Router()
 
-const {} = require('../models/User')
+const { User } = require('../models/user')
 
 router.get("/"), async (req, res)=> {
     try{
@@ -48,10 +48,10 @@ router.get("/:id"), async (req, res)=> {
 
 router.post("/", async (req, res) => {
     try {
-        const { name, description, img_url, status } = req.body
+        const { name, age, email } = req.body
 
         const user = new User({
-            name, description, img_url, status
+            name, age, email
         });
 
         await user.save();
