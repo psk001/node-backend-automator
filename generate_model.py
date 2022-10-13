@@ -5,7 +5,7 @@ module_first_line= """const mongoose = require('mongoose')\nconst { Schema } = m
 
 def generate_model(module_name, fields):
     #creating model ouput file
-    model_output_file= './output/'+ module_name +'_model.js'
+    model_output_file= './output/model/'+ module_name +'.js'
     os.makedirs(os.path.dirname(model_output_file), exist_ok=True)
 
     first_schema_line= "const {}Schema = new Schema({{\n".format(module_name)
