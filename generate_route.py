@@ -127,7 +127,7 @@ router.delete("/:id", async (req, res) => {{
 
 def generate_route(module_name, fields):
     
-    route_output_file= './output/route/'+ module_name +'.js'
+    route_output_file= './output/routes/'+ module_name +'.js'
     os.makedirs(os.path.dirname(route_output_file), exist_ok=True)
 
     first_route_line= "const {{ {} }} = require('../models/{}')\n".format(module_name.capitalize(), module_name)
