@@ -1,4 +1,4 @@
-## Node Code Generator
+## Node Backend Code Generator
 ### Curently works with NodeJs, Expressjs, MongoDb with Mongoose
 
 ## Features
