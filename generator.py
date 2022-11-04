@@ -1,9 +1,10 @@
 import json
-import os
 
 from numpy import ModuleDeprecationWarning
 from generate_model import generate_model
 from generate_route import generate_route
+from generate_validator import generate_validator
+from populate_db import populate
 
 # creates model from the imput.json file
 file= open('input.json')
@@ -15,5 +16,8 @@ field_list= data['fields']
 
 generate_model(module_name, field_list)
 generate_route(module_name, field_list)
+generate_validator(module_name, field_list)
+
+# populate(module_name, field_list)
 
     

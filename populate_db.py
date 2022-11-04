@@ -15,6 +15,9 @@ def populate(module_name, fields, port=5000):
         elif (field['type']=='number'):
             val= generateRandomNumber()
 
+        else:
+            val= 'random-data'
+            
         request_obj['{}'.format(field['key'])]= val
 
     x = requests.post(url, json= request_obj)
