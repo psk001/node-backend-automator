@@ -25,12 +25,24 @@ def generate_model(module_name, fields):
 
         if('params' in field):
             for key, value in field['params'].items():
-                print('key: ', key, ' value: ', value)
+                print('key: ', key, ' value: ', value, ' type: ', type(value))
                 
-                if(not isinstance(value, bool)):
-                    value= "'{}'".format(value)
-                    
-                curr_line= "\t\t{}: {},\n".format(key, str(value).lower())
+                if(isinstance(value, bool)):
+                    value= str(value).lower()
+                    print(' modified value for int: ', value)
+
+                elif (value=='Date.now()'):
+                    value= value
+                    print(' modified value for date now: ', value)
+
+                elif(isinstance(value, int)):      #bool checker
+                    value= str(value)
+                    print(' modified value for bool: ', value)
+                
+                # else:
+                #     value= 
+
+                curr_line= "\t\t{}: {},\n".format(key, value)
                 output.write(curr_line)             
 
         output.write('\t},\n')

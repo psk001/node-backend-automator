@@ -15,7 +15,7 @@ field_list= data['fields']
 
 generate_model(module_name, field_list)
 # generate_route(module_name, field_list)
-generate_validator(module_name, field_list)
+# generate_validator(module_name, field_list)
 
 # populate(module_name, field_list)
 
