@@ -8,31 +8,34 @@ def generate_model(module_name, fields):
     model_output_file= './output/models/'+ module_name +'.js'
     os.makedirs(os.path.dirname(model_output_file), exist_ok=True)
 
-    first_schema_line= "const {}Schema = new Schema({{\n".format(module_name)
-    last_schema_line= "})\n\n"
+    schema_first_line= "const {}Schema = new Schema({{\n".format(module_name)
+    schema_last_line= "})\n\n"
 
-    module_last_line= "module.exports.{} = mongoose.model('{}', {}Schema)".format(module_name.capitalize(), module_name.capitalize(), module_name)
+    module_last_line= "module.exports.{} = mongoose.model('{}', {}Schema)".format(module_name[0].upper()+module_name[1:], module_name[0].upper()+module_name[1:], module_name)
 
     output= open(model_output_file, 'w')
 
     output.write(module_first_line)
-    output.write(first_schema_line)
+    output.write(schema_first_line)
 
     for field in fields:
-        # flag= 1 if field['type'] in ["number", "boolean"] else 0
 
         curr_line= "\t{}: {{ \n\t\ttype: {}, \n".format(field['key'],field['type'].capitalize())
         output.write(curr_line)
 
         if('params' in field):
             for key, value in field['params'].items():
-                value= value #if flag==1 else '"'+value+'"'
-                curr_line= "\t\t"+ key + ": "+ value+ ", \n" 
+                print('key: ', key, ' value: ', value)
+                
+                if(not isinstance(value, bool)):
+                    value= "'{}'".format(value)
+                    
+                curr_line= "\t\t{}: {},\n".format(key, str(value).lower())
                 output.write(curr_line)             
 
         output.write('\t},\n')
 
-    output.write(last_schema_line)
+    output.write(schema_last_line)
     output.write(module_last_line)
 
 

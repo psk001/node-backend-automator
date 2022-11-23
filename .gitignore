@@ -1,3 +1,5 @@
 templates/
 input.json
 __pycache__
+models/
+output/
