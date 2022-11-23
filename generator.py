@@ -13,9 +13,10 @@ data= json.load(file)
 module_name= data['module_name']
 field_list= data['fields']
 
+# GENERATOR FUNCTIONS
 generate_model(module_name, field_list)
-# generate_route(module_name, field_list)
-# generate_validator(module_name, field_list)
+generate_route(module_name, field_list)
+generate_validator(module_name, field_list)
 
 # populate(module_name, field_list)
 
