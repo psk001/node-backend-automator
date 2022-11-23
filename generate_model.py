@@ -31,7 +31,7 @@ def generate_model(module_name, fields):
                     value= str(value).lower()
                     print(' modified value for int: ', value)
 
-                elif (value=='Date.now()'):
+                elif (value=='Date.now()' or key=='enum'):
                     value= value
                     print(' modified value for date now: ', value)
 
