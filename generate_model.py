@@ -20,7 +20,7 @@ def generate_model(module_name, fields):
 
     for field in fields:
 
-        curr_line= "\t{}: {{ \n\t\ttype: {}, \n".format(field['key'],field['type'].capitalize())
+        curr_line= "\t{}: {{ \n\t\ttype: {}, \n".format(field['key'],field['type'])
         output.write(curr_line)
 
         if('params' in field):
@@ -39,8 +39,8 @@ def generate_model(module_name, fields):
                     value= str(value)
                     print(' modified value for bool: ', value)
                 
-                # else:
-                #     value= 
+                else:
+                    value= "'{}'".format(value)
 
                 curr_line= "\t\t{}: {},\n".format(key, value)
                 output.write(curr_line)             
