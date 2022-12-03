@@ -1,0 +1,283 @@
+{
+    "module_name":"quizAssign",
+    "fields": [
+        {
+            "key":"quiz",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.ObjectId",
+                    "ref":"Quiz",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "key":"quiz_set",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.Mixed",
+                    "ref":"Quiz"
+                }
+            ]
+        },
+        {
+            "key":"set_submission",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.ObjectId",
+                    "ref": "QuizAssign"
+                }
+            ]
+        },
+        {
+            "key":"marks",
+            "type":"Number"
+        },
+        {
+            "key":"normalized_score",
+            "type":"Number"
+        },
+        {
+            "key":"name",
+            "type":"String"
+        },
+        {
+            "key":"email",
+            "type":"String",
+            "params": {
+                "required": true,
+                "trim": true,
+                "unique": true,
+                "lowercase": true
+            }
+        },
+        {
+            "key":"mobile",
+            "type":"String",
+            "params": {
+                "trim": true
+            }
+        },
+        {
+            "key":"gender",
+            "type":"String",
+            "params": {
+                "required": true,
+                "enum": ["M", "F", "O", "T", "NB", "NC"]
+            }
+        },
+        {
+            "key":"college",
+            "type":"mongoose.Schema.Types.ObjectId",
+            "params": {
+                "ref": "College"
+            }
+        },
+        {
+            "key":"cgpa",
+            "type":"Number"
+        },
+        {
+            "key":"class_ten_perc",
+            "type":"Number"
+        },
+        {
+            "key":"class_twelve_perc",
+            "type":"Number"
+        },
+        {
+            "key":"num_current_backlogs",
+            "type":"String",
+            "params": {
+                "default": 0
+            }
+        },
+        {
+            "key":"grad_degree",
+            "type":"String"
+        },
+        {
+            "key":"branch",
+            "type":"String"
+        },
+        {
+            "key":"grad_degree",
+            "type":[
+                {
+                    "type": "String"
+                }
+            ]
+        },
+        {
+            "key": "proctoring_flags",
+            "type": [
+                {
+                    "type": "mongoose.Schema.Types.ObjectId",
+                    "ref": "ProctoringFlag"
+                }
+            ]
+        },
+        {
+            "key": "proctoring_flags",
+            "type": [
+                {
+                    "type": "mongoose.Schema.Types.ObjectId",
+                    "ref": "CheatingFlag"
+                }
+            ]
+        },
+        {
+            "key":"user",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.ObjectId",
+                    "ref": "User"
+                }
+            ]
+        },
+        {
+            "key":"response",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.Mixed"
+                }
+            ]
+        },
+        {
+            "key":"time_response",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.Mixed"
+                }
+            ]
+        },
+        {
+            "key":"marking",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.Mixed"
+                }
+            ]
+        },
+        {
+            "key":"created_by",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.ObjectId",
+                    "ref": "User",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "key":"updated_by",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.ObjectId",
+                    "ref": "User"
+                }
+            ]
+        },
+        {
+            "key":"invited_by",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.ObjectId",
+                    "ref": "User"
+                }
+            ]
+        },
+        {
+            "key":"proctor",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.ObjectId",
+                    "ref": "User"
+                }
+            ]
+        },
+        {
+            "key":"proctor_name",
+            "type":"String"
+        },
+        {
+            "key":"proctor_email",
+            "type":"String",
+            "params": {
+                "required": true,
+                "trim": true,
+                "unique": true,
+                "lowercase": true
+            }
+        },
+        {
+            "key":"is_invited",
+            "type":"Boolean",
+            "params":{
+                "default": false
+            }
+        },
+        {
+            "key":"is_email_error",
+            "type":"Boolean"
+        },
+        {
+            "key":"email_error_msg",
+            "type":"String"
+        },
+        {
+            "key":"extra_time",
+            "type":"Number"
+        },
+        {
+            "key":"rating",
+            "type":"Number"
+        },
+        {
+            "key":"feedback_type",
+            "type":"String"
+        },
+        {
+            "key":"proctor_rating",
+            "type":"String"
+        },
+        {
+            "key":"proctor_feedback_type",
+            "type":"String"
+        },
+        {
+            "key":"proctor_feedback",
+            "type":"String"
+        },
+        {
+            "key":"isSubmitted",
+            "type":"Boolean",
+            "params":{
+                "default": false
+            }
+        },
+        {
+            "key":"started_at",
+            "type":"Date"
+        },
+        {
+            "key":"submitted_at",
+            "type":"Date"
+        },
+        {
+            "key":"created_at",
+            "type":"Date",
+            "params":{
+                "default":"Date.now()"
+            }
+        },
+        {
+            "key":"custom_rank",
+            "type":"Number"
+        },
+        {
+            "key":"custom_total_students",
+            "type":"Number"
+        }
+    ]
+}

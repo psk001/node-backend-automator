@@ -1,0 +1,64 @@
+{
+    "module_name": "courseCategory",
+    "fields" : [  
+        {
+            "key": "proctoring_flags",
+            "type": [
+                {
+                    "type": "mongoose.Schema.Types.ObjectId",
+                    "ref": "ProctoringFlag"
+                },
+                {
+                    "type": "mongoose.Schema.Types.ObjectId",
+                    "ref": "CheatingFlag"
+                }
+            ]
+        },
+        {
+            "key":"lanugage",
+            "type": "String",
+            "params": {
+                "enum": ["ENGLISH", "HINDI"],
+                "required": true
+            }
+        },
+        {      
+            "key":"title",
+            "type":"String", 
+            "params": {
+                "required": true,
+                "unique": true,
+                "default": "devBoss Psk"
+            }
+        },
+        {
+            "key": "parent",
+            "type": "mongoose.Schema.Types.ObjectId",
+            "params": {
+                "ref" : "CourseCategory"
+            }
+        },
+        {
+            "key":"created_by",
+            "type": "mongoose.Schema.Types.ObjectId",
+            "params": {
+                "required": true,
+                "ref" : "User"
+            }
+        },
+        {
+            "key": "created_at",
+            "type": "Date",
+            "params": {
+                "default": "Date.now()"
+            }
+        },
+        {
+            "key":"updated_by",
+            "type": "mongoose.Schema.Types.ObjectId",
+            "params": {
+                "ref" : "User"
+            }
+        }
+    ]
+}
