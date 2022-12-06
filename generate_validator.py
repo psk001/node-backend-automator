@@ -19,10 +19,21 @@ def generate_validator(module_name, fields):
     for field in fields:
 
         size_val=""",\n\n"""
-        if field['type']=='string':
+        dataType=field['type']
+
+        if dataType=='string':
             size_val=".min(5).max(255)"+size_val
 
-        curr_line= "\t{}: Joi.{}()".format(field['key'], field['type'])+size_val
+        elif isinstance(dataType, list):
+            dataType= 'array'
+
+        elif dataType=='mongoose.Schema.Types.ObjectId':
+            dataType= 'string'
+
+        else:
+            dataType= dataType.lower()
+
+        curr_line= "\t{}: Joi.{}()".format(field['key'], dataType)+size_val
 
         output.write(curr_line)    
 
@@ -39,6 +50,7 @@ module.exports = validate{};
     """.format(function_name)
 
     output.write(module_last_line)
+
 
 def generate_function(module_name):
     function_name= module_name[0].upper()+module_name[1:]

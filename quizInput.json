@@ -1,0 +1,152 @@
+{
+    "module_name": "quiz",
+    "fields": [
+        {
+            "key":"title",
+            "type":"String"
+        },
+        {
+            "key":"daily_bdomainasis",
+            "type":"String"
+        },
+        {
+            "key":"start_duration",
+            "type":"String"
+        },
+        {
+            "key":"end_duration",
+            "type":"String"
+        },
+        {
+            "key":"description",
+            "type":"String"
+        },
+        {
+            "key":"navigation_type",
+            "type":"String"
+        },
+        {
+            "key":"is_sections_random",
+            "type":"String"
+        },
+        {
+            "key":"is_proctoring",
+            "type":"String"
+        },
+        {
+            "key":"is_public",
+            "type":"String"
+        },
+        {
+            "key":"is_recording",
+            "type":"String"
+        },
+        {
+            "key":"is_aits",
+            "type":"String"
+        },
+        {
+            "key":"is_a_set",
+            "type":"String"
+        },
+        {
+            "key":"allow_set_choose",
+            "type":"String"
+        },
+        {
+            "key":"sets",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.ObjectId",
+                    "ref": "Quiz"
+                }
+            ]
+        },
+        {
+            "key":"alloted_proctors",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.ObjectId",
+                    "ref": "User"
+                }
+            ]
+        },
+        {
+            "key":"data",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.Mixed"
+                }
+            ]
+        },
+        {
+            "key":"components",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.Mixed"
+                }
+            ]
+        },
+        {
+            "key":"created_by",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.ObjectId",
+                    "ref": "User",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "key":"updated_by",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.ObjectId",
+                    "ref": "User"
+                }
+            ]
+        }, 
+        {
+            "key":"assinged_at",
+            "type":"Date"
+        },
+        {
+            "key":"proctor_assigned_at",
+            "type":"Date"
+        },
+        {
+            "key":"sectionIndex",
+            "type":"Number"
+        },
+        {
+            "key":"questionIndex",
+            "type":"Number"
+        },
+        {
+            "key":"company",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.ObjectId",
+                    "ref":"Company"
+                }
+            ]
+        },
+        {
+            "key":"group",
+            "type":[
+                {
+                    "type": "mongoose.Schema.Types.Mixed",
+                    "ref":"QuizGroup"
+                }
+            ]
+        },
+        {
+            "key":"status",
+            "type":"Boolean",
+            "params": {
+                "default": true
+            }
+        }
+
+    ]
+}

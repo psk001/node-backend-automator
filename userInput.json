@@ -1,0 +1,181 @@
+{
+    "module_name":"user",
+    "fields":[
+        {
+            "key":"name",
+            "type":"String",
+            "params": {
+                "required": true,
+                "trim": true
+            }
+        },
+        {
+            "key":"type",
+            "type":"String",
+            "params": {
+                "required": true,
+                "trim": true,
+                "uppercase": true,
+                "enum": ["T", "S", "A", "P", "HR", "KA-I"]
+            }            
+        },
+        {
+            "key":"signup_type",
+            "type":"String",
+            "params": {
+                "required": true,
+                "uppercase": true
+            }
+        },
+        {
+            "key":"email",
+            "type":"String",
+            "params": {
+                "required": true,
+                "trim": true,
+                "unique": true,
+                "lowercase": true
+            }
+        },
+        {
+            "key":"mobile",
+            "type":"String",
+            "params": {
+                "trim": true
+            }
+        },
+        {
+            "key":"gender",
+            "type":"String",
+            "params": {
+                "required": true,
+                "enum": ["M", "F", "O", "T", "NB", "NC"]
+            }
+        },
+        {
+            "key":"companies",
+            "type":[
+                {
+                    "type" : "mongoose.Schema.Types.ObjectId",
+                    "required" : true,
+                    "ref" : "Company"
+                }
+            ] 
+        },
+        {
+            "key":"password",
+            "type":"String",
+            "params": {
+                "required": true,
+                "trim": true
+            }            
+        },
+        {
+            "key":"is_email_verified",
+            "type":"Boolean",
+            "params": {
+                "default": false
+            }
+        },
+        {
+            "key":"created_at",
+            "type":"Date",
+            "params": {
+                "default": "Date.now()"
+            }
+        },
+        {
+            "key":"status",
+            "type":"Boolean",
+            "params": {
+                "default": true
+            }
+        },
+        {
+            "key":"resume_file",
+            "type":"String"
+        },
+        {
+            "key":"college",
+            "type":"mongoose.Schema.Types.ObjectId",
+            "params": {
+                "ref": "College"
+            }
+        },
+        {
+            "key":"prev_employment",
+            "type":"String"            
+        },
+        {
+            "key":"tech_stack",
+            "type":[
+                {
+                    "type":"String"
+                }
+            ]
+        },
+        {
+            "key":"branch",
+            "type":"String"
+        },
+        {
+            "key":"cgpa",
+            "type":"Number"
+        },
+        {
+            "key":"address",
+            "type":"String"
+        },
+        {
+            "key":"location",
+            "type":"String"
+        },
+        {
+            "key":"hear_about_us",
+            "type":"String"
+        },
+        {
+            "key":"employed_before",
+            "type":"Boolean"
+        },
+        {
+            "key":"legal_age",
+            "type":"Number"
+        },
+        {
+            "key":"linkedin_url",
+            "type":"String"
+        },
+        {
+            "key":"consent",
+            "type":"String"
+        },
+        {
+            "key":"daily_basis",
+            "type":"String"
+        },
+        {
+            "key":"is_pwd",
+            "type":"Boolean"
+        },
+        {
+            "key":"photo_file",
+            "type":"String"
+        },
+        {
+            "key":"gmailUserId",
+            "type":"String",
+            "params": {
+                "trim": true
+            }
+        },
+        {
+            "key":"githubId",
+            "type":"String",
+            "params": {
+                "trim": true
+            }
+        }
+    ]
+
+}
