@@ -21,7 +21,7 @@ router.get("/", async (req, res)=> {{
             msg: 'Could not fetch data'
         }})
     }}
-}}
+}})
 """.format(module_name, module_name.capitalize(), module_name)
     return getAllRoute
 
@@ -52,7 +52,7 @@ router.get("/:id", async (req, res)=> {{
             msg: 'Could not fetch data'
         }})
     }}
-}}
+}})
 
 """.format(module_name, module_name.capitalize(), module_name, module_name)
     return getOneRoute
