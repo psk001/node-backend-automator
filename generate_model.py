@@ -51,8 +51,12 @@ def generate_model(module_name, fields):
             
                 output.write('\t\t{')
                 for key, value in field.items():
-                    value= modifyValueByKeyAndType(key, value)
-                    field_curr_line= "\n\t\t\t{}: {},".format(key, value)
+                    field_curr_line=""
+                    if key=="type":
+                        field_curr_line= "\n\t\t\t{}: {},".format(key, value)
+                    else:
+                        value= modifyValueByKeyAndType(key, value)
+                        field_curr_line= "\n\t\t\t{}: {},".format(key, value)
                     output.write(field_curr_line)
                 output.write('\n\t\t},\n')
 

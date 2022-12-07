@@ -33,6 +33,9 @@ def generate_validator(module_name, fields):
         else:
             dataType= dataType.lower()
 
+        if 'params' in field and  'required' in field['params']: 
+            size_val='.required()'+size_val
+
         curr_line= "\t{}: Joi.{}()".format(field['key'], dataType)+size_val
 
         output.write(curr_line)    
