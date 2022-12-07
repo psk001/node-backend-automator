@@ -37,7 +37,7 @@ const userSchema = new Schema({
 	},
 	companies: [
 		{
-			type: 'mongoose.Schema.Types.ObjectId',
+			type: mongoose.Schema.Types.ObjectId,
 			required: true,
 			ref: 'Company',
 		},
@@ -71,7 +71,7 @@ const userSchema = new Schema({
 	},
 	tech_stack: [
 		{
-			type: 'String',
+			type: String,
 		},
 	],
 	branch: { 

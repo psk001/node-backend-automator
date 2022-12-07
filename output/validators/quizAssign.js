@@ -13,11 +13,11 @@ const quizAssignSchema = Joi.object({
 
 	name: Joi.string(),
 
-	email: Joi.string(),
+	email: Joi.string().required(),
 
 	mobile: Joi.string(),
 
-	gender: Joi.string(),
+	gender: Joi.string().required().valid('M','F','O','T','NB','NC',),
 
 	college: Joi.string(),
 
@@ -57,7 +57,7 @@ const quizAssignSchema = Joi.object({
 
 	proctor_name: Joi.string(),
 
-	proctor_email: Joi.string(),
+	proctor_email: Joi.string().required(),
 
 	is_invited: Joi.boolean(),
 

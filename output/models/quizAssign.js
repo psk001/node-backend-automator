@@ -4,20 +4,20 @@ const { Schema } = mongoose
 const quizAssignSchema = new Schema({
 	quiz: [
 		{
-			type: 'mongoose.Schema.Types.ObjectId',
+			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Quiz',
 			required: true,
 		},
 	],
 	quiz_set: [
 		{
-			type: 'mongoose.Schema.Types.Mixed',
+			type: mongoose.Schema.Types.Mixed,
 			ref: 'Quiz',
 		},
 	],
 	set_submission: [
 		{
-			type: 'mongoose.Schema.Types.ObjectId',
+			type: mongoose.Schema.Types.ObjectId,
 			ref: 'QuizAssign',
 		},
 	],
@@ -71,64 +71,64 @@ const quizAssignSchema = new Schema({
 	},
 	grad_degree: [
 		{
-			type: 'String',
+			type: String,
 		},
 	],
 	proctoring_flags: [
 		{
-			type: 'mongoose.Schema.Types.ObjectId',
+			type: mongoose.Schema.Types.ObjectId,
 			ref: 'ProctoringFlag',
 		},
 	],
 	proctoring_flags: [
 		{
-			type: 'mongoose.Schema.Types.ObjectId',
+			type: mongoose.Schema.Types.ObjectId,
 			ref: 'CheatingFlag',
 		},
 	],
 	user: [
 		{
-			type: 'mongoose.Schema.Types.ObjectId',
+			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
 		},
 	],
 	response: [
 		{
-			type: 'mongoose.Schema.Types.Mixed',
+			type: mongoose.Schema.Types.Mixed,
 		},
 	],
 	time_response: [
 		{
-			type: 'mongoose.Schema.Types.Mixed',
+			type: mongoose.Schema.Types.Mixed,
 		},
 	],
 	marking: [
 		{
-			type: 'mongoose.Schema.Types.Mixed',
+			type: mongoose.Schema.Types.Mixed,
 		},
 	],
 	created_by: [
 		{
-			type: 'mongoose.Schema.Types.ObjectId',
+			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
 			required: true,
 		},
 	],
 	updated_by: [
 		{
-			type: 'mongoose.Schema.Types.ObjectId',
+			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
 		},
 	],
 	invited_by: [
 		{
-			type: 'mongoose.Schema.Types.ObjectId',
+			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
 		},
 	],
 	proctor: [
 		{
-			type: 'mongoose.Schema.Types.ObjectId',
+			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
 		},
 	],

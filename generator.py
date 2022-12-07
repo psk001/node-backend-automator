@@ -6,7 +6,7 @@ from generate_validator import generate_validator
 from populate_db import populate
 
 # creates model from the imput.json file
-file= open('quizA.json')
+file= open('userInput.json')
 data= json.load(file)
 
 #getting module name from input

@@ -43,36 +43,36 @@ const quizSchema = new Schema({
 	},
 	sets: [
 		{
-			type: 'mongoose.Schema.Types.ObjectId',
+			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Quiz',
 		},
 	],
 	alloted_proctors: [
 		{
-			type: 'mongoose.Schema.Types.ObjectId',
+			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
 		},
 	],
 	data: [
 		{
-			type: 'mongoose.Schema.Types.Mixed',
+			type: mongoose.Schema.Types.Mixed,
 		},
 	],
 	components: [
 		{
-			type: 'mongoose.Schema.Types.Mixed',
+			type: mongoose.Schema.Types.Mixed,
 		},
 	],
 	created_by: [
 		{
-			type: 'mongoose.Schema.Types.ObjectId',
+			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
 			required: true,
 		},
 	],
 	updated_by: [
 		{
-			type: 'mongoose.Schema.Types.ObjectId',
+			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
 		},
 	],
@@ -90,13 +90,13 @@ const quizSchema = new Schema({
 	},
 	company: [
 		{
-			type: 'mongoose.Schema.Types.ObjectId',
+			type: mongoose.Schema.Types.ObjectId,
 			ref: 'Company',
 		},
 	],
 	group: [
 		{
-			type: 'mongoose.Schema.Types.Mixed',
+			type: mongoose.Schema.Types.Mixed,
 			ref: 'QuizGroup',
 		},
 	],

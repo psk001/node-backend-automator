@@ -33,6 +33,17 @@ def generate_validator(module_name, fields):
         else:
             dataType= dataType.lower()
 
+        if 'params' in field and 'enum' in field['params']:
+            curr_line= '.valid('
+            for data in field['params']['enum']:
+                curr_line+= "'{}',".format(data)
+            curr_line+='),\n\n'
+            size_val= curr_line
+
+        
+        if 'params' in field and  'required' in field['params']: 
+            size_val='.required()'+size_val
+
         curr_line= "\t{}: Joi.{}()".format(field['key'], dataType)+size_val
 
         output.write(curr_line)    

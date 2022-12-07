@@ -1,21 +1,21 @@
 const Joi = require('joi');
 
 const userSchema = Joi.object({
-	name: Joi.string(),
+	name: Joi.string().required(),
 
-	type: Joi.string(),
+	type: Joi.string().required().valid('T','S','A','P','HR','KA-I',),
 
-	signup_type: Joi.string(),
+	signup_type: Joi.string().required(),
 
-	email: Joi.string(),
+	email: Joi.string().required(),
 
 	mobile: Joi.string(),
 
-	gender: Joi.string(),
+	gender: Joi.string().required().valid('M','F','O','T','NB','NC',),
 
 	companies: Joi.array(),
 
-	password: Joi.string(),
+	password: Joi.string().required(),
 
 	is_email_verified: Joi.boolean(),
 
