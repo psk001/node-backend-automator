@@ -17,7 +17,7 @@ const quizAssignSchema = Joi.object({
 
 	mobile: Joi.string(),
 
-	gender: Joi.string().required(),
+	gender: Joi.string().required().valid('M','F','O','T','NB','NC',),
 
 	college: Joi.string(),
 
