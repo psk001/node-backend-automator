@@ -6,7 +6,7 @@ module_first_line= "const express= require('express')\nconst router= express.Rou
 def get_all_route(module_name):
     
     getAllRoute= """
-router.get("/"), async (req, res)=> {{
+router.get("/", async (req, res)=> {{
     try{{
         const {}= await {}.find().lean()
         return res.status(200).send({{
@@ -29,7 +29,7 @@ router.get("/"), async (req, res)=> {{
 #  get one object by id 
 def get_one_route(module_name):
     getOneRoute= """
-router.get("/:id"), async (req, res)=> {{
+router.get("/:id", async (req, res)=> {{
     try{{
         const {}= await {}.findById(req.params.id).lean()
 

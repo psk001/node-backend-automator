@@ -1,0 +1,62 @@
+{
+    "module_name":"like",
+    "fields":[
+        {
+            "key":"p1",
+            "type":"mongoose.Schema.Types.ObjectId",
+            "ref" : "User",
+            "params": {
+                "required": true
+            }
+        },
+        {
+            "key":"p1_liked_at",
+            "type":"Date",
+            "params": {
+                "default": "Date.now"
+            }            
+        },
+        {
+            "key":"p1_msg",
+            "type":"String",
+            "params": {
+                "trim": true
+            }            
+        },
+        {
+            "key":"p2",
+            "type":"mongoose.Schema.Types.ObjectId",
+            "ref" : "User",
+            "params": {
+            }
+        },
+        {
+            "key":"p2_liked_at",
+            "type":"Date",
+            "params": {
+            }            
+        },
+        {
+            "key":"p2_msg",
+            "type":"String",
+            "params": {
+                "trim": true
+            }            
+        },
+        {
+            "key":"is_match",
+            "type":"Boolean",
+            "params": {
+                "default": false
+            }
+        },
+        {
+            "key":"unmatch_on",
+            "type":"Date",
+            "params": {
+               
+            }
+        }
+    ]
+
+}

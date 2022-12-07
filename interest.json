@@ -1,0 +1,29 @@
+{
+    "module_name":"interest",
+    "fields":[
+        {
+            "key":"name",
+            "type":"String",
+            "params": {
+                "required": true,
+                "trim": true
+            }
+        },
+        {
+            "key":"icon",
+            "type":"String",
+            "params": {
+                "required": true,
+                "trim": true
+            }            
+        },
+        {
+            "key":"status",
+            "type":"Boolean",
+            "params": {
+                "default": true
+            }
+        }
+    ]
+
+}
