@@ -123,7 +123,7 @@ def _generate_post(module_name, fields):
 				],
 				"body": {{
 					"mode": "raw",
-					"raw": ,
+					"raw": "{{\\r\\n    \\"course_title\\": \\"ABC\\",\\r\\n    \\"course_subtitle\\": \\"Basics Course\\",\\r\\n    \\"course_description\\": \\"very boring\\" ,\\r\\n    \\"course_category\\": \\"634d8623ce8abdae5f428605\\",\\r\\n    \\"last_enrollment_date\\" \\"2022-10-17T16:43:15.366Z\\",\\r\\n    \\"start_date\\": \\"2022-10-18\\",\\r\\n    \\"end_date\\": \\"2022-10-29\\",\\r\\n    \\"language\\": \\"ENGLISH\\",\\r\\n    \\"course_img\\": \\"www.image.com\\",\\r\\n    \\"course_trailer\\": \\"www.trailer1.com\\",\\r\\n    \\"course_layout\\": \\"<h5>Week1<h5>\\",\\r\\n    \\"instructor\\": \\"634e3ccbc4b12a4ffbcc140d\\",\\r\\n    \\"references\\": \\"1. Introduction to Algorithms by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein.\\"\\r\\n}}\",
 					"options": {{
 						"raw": {{
 							"language": "json"
