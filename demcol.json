@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "f6374735-871a-402d-89ba-4b0b8f2ba418",
+		"name": "KA-Course",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16808006"
+	},
+	"item": [
+		{
+			"name": "Get all courses",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "x-referer-sec-bool",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5678/api/course",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5678",
+					"path": [
+						"api",
+						"course"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a course",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "x-referer-sec-bool",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5678/api/course/634ea67d4c09bf583b9670c9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5678",
+					"path": [
+						"api",
+						"course",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a course",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "x-referer-sec-bool",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"course_title\": \"ABC\",\r\n    \"course_subtitle\": \"Basics Course\",\r\n    \"course_description\": \"very boring\" ,\r\n    \"course_category\": \"634d8623ce8abdae5f428605\",\r\n    \"last_enrollment_date\" \"2022-10-17T16:43:15.366Z\",\r\n    \"start_date\": \"2022-10-18\",\r\n    \"end_date\": \"2022-10-29\",\r\n    \"language\": \"ENGLISH\",\r\n    \"course_img\": \"www.image.com\",\r\n    \"course_trailer\": \"www.trailer1.com\",\r\n    \"course_layout\": \"<h5>Week1<h5>\",\r\n    \"instructor\": \"634e3ccbc4b12a4ffbcc140d\",\r\n    \"references\": \"1. Introduction to Algorithms by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5678/api/course",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5678",
+					"path": [
+						"api",
+						"course"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a course",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "x-referer-sec-bool",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"subtitle\": \"Updated2\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5678/api/course/634ea67d4c09bf583b9670c9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5678",
+					"path": [
+						"api",
+						"course",
+						"634ea67d4c09bf583b9670c9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a course",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "x-referer-sec-bool",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5678/api/course/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5678",
+					"path": [
+						"api",
+						"course",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
