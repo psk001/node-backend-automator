@@ -1,0 +1,154 @@
+{
+    "info": {
+        "name": "user",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+     "item": [
+ 
+		{
+			"name": "Get all user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "x-referer-sec-bool",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5678/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5678",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},    
+    
+		{
+			"name": "Get a user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "x-referer-sec-bool",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5678/api/user/id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5678",
+					"path": [
+						"api",
+						"user",
+						"id"
+					]
+				}
+			},
+			"response": []
+		},    
+    
+		{
+			"name": "Create a user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "x-referer-sec-bool",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"test\",\r\n\"type\": \"test\",\r\n\"signup_type\": \"test\",\r\n\"email\": \"test\",\r\n\"mobile\": \"test\",\r\n\"gender\": \"test\",\r\n\"companies\": \"634d8623ce8abdae5f428605\",\r\n\"password\": \"test\",\r\n\"is_email_verified\": \"true\",\r\n\"created_at\": \"2000-03-14\",\r\n\"status\": \"true\",\r\n\"resume_file\": \"test\",\r\n\"college\": \"634d8623ce8abdae5f428605\",\r\n\"prev_employment\": \"test\",\r\n\"tech_stack\": \"test\",\r\n\"branch\": \"test\",\r\n\"cgpa\": \"14\",\r\n\"address\": \"test\",\r\n\"location\": \"test\",\r\n\"hear_about_us\": \"test\",\r\n\"employed_before\": \"true\",\r\n\"legal_age\": \"14\",\r\n\"linkedin_url\": \"test\",\r\n\"consent\": \"test\",\r\n\"daily_basis\": \"test\",\r\n\"is_pwd\": \"true\",\r\n\"photo_file\": \"test\",\r\n\"gmailUserId\": \"test\",\r\n\"githubId\": \"test\",\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5678/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5678",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},    
+    
+		{
+			"name": "Delete a user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "",
+						"type": "text"
+					},
+					{
+						"key": "x-referer-sec-bool",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5678/api/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5678",
+					"path": [
+						"api",
+						"user",
+						"id"
+					]
+				}
+			},
+			"response": []
+		}    
+    ]
+}

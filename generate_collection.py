@@ -1,9 +1,35 @@
 import os
 
-def _generate_payload(fields):
-    data="""
+dummyData= {
+	'Boolean': 'true',
+	'Date':'2000-03-14',
+	'mongoose.Schema.Types.ObjectId':'634d8623ce8abdae5f428605',
+	'mongoose.Schema.Types.Mixed':'634d8623ce8abdae5f428605',
+	'Number':'14',
+	'String': 'test'
+}
 
-    """
+def _generate_payload(fields):
+
+	data= '"{\\r\\n'
+
+	for field in fields:
+		type= field['type']
+		
+		value= ''
+		if isinstance(type, list):
+			type= type[0]['type']
+			value= dummyData[type]
+		else:
+			value= dummyData[field['type']]
+
+		current_line= '\\"{}\\": \\"{}\\",\\r\\n'.format(field['key'], value)
+		data+=current_line
+
+	data+='}",'
+
+	return data
+
 
 # generate info segment -- metadata part
 def _generate_info_segment(module_name):
@@ -123,7 +149,7 @@ def _generate_post(module_name, fields):
 				],
 				"body": {{
 					"mode": "raw",
-					"raw": "{{\\r\\n    \\"course_title\\": \\"ABC\\",\\r\\n    \\"course_subtitle\\": \\"Basics Course\\",\\r\\n    \\"course_description\\": \\"very boring\\" ,\\r\\n    \\"course_category\\": \\"634d8623ce8abdae5f428605\\",\\r\\n    \\"last_enrollment_date\\" \\"2022-10-17T16:43:15.366Z\\",\\r\\n    \\"start_date\\": \\"2022-10-18\\",\\r\\n    \\"end_date\\": \\"2022-10-29\\",\\r\\n    \\"language\\": \\"ENGLISH\\",\\r\\n    \\"course_img\\": \\"www.image.com\\",\\r\\n    \\"course_trailer\\": \\"www.trailer1.com\\",\\r\\n    \\"course_layout\\": \\"<h5>Week1<h5>\\",\\r\\n    \\"instructor\\": \\"634e3ccbc4b12a4ffbcc140d\\",\\r\\n    \\"references\\": \\"1. Introduction to Algorithms by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein.\\"\\r\\n}}\",
+					"raw": {}
 					"options": {{
 						"raw": {{
 							"language": "json"
@@ -145,9 +171,57 @@ def _generate_post(module_name, fields):
 			}},
 			"response": []
 		}},    
-    """.format(module_name, module_name, module_name)
+    """.format(module_name, _generate_payload(fields), module_name, module_name)
 
-    return data
+	return data
+
+
+def _generate_put(module_name, fields):
+    data= """
+		{{
+			"name": "Create a {}",
+			"request": {{
+				"method": "PUT",
+				"header": [
+					{{
+						"key": "x-auth-token",
+						"value": "",
+						"type": "text"
+					}},
+					{{
+						"key": "x-referer-sec-bool",
+						"value": "1",
+						"type": "text"
+					}}
+				],
+				"body": {{
+					"mode": "raw",
+					"raw": {}
+					"options": {{
+						"raw": {{
+							"language": "json"
+						}}
+					}}
+				}},
+				"url": {{
+					"raw": "http://localhost:5678/api/{}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5678",
+					"path": [
+						"api",
+						"{}"
+					]
+				}}
+			}},
+			"response": []
+		}},    
+    """.format(module_name, _generate_payload(fields), module_name, module_name)
+
+	return data
+
 
 
 def _generate_delete(module_name):
@@ -212,6 +286,8 @@ def generate_collection(module_name, fields):
 
     output.write(_generate_post(module_name, fields))
 
+	output.write(_generate_put(module_name, fields))
+
     output.write(_generate_delete(module_name))
 
 
@@ -222,4 +298,4 @@ def generate_collection(module_name, fields):
     # for closing curly brace
     output.write('}')
 
-generate_collection('course', 'ds')
+# generate_collection('course', )
